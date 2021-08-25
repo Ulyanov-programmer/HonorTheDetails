@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@@include('_head.html', {
+"title": "Main"
+})
+
+<body>
+    @@include('_header.html')
+
+    <main class="main">
+        <div class="main__body">
+            <section class="fullscreen">
+                <div class="fullscreen__body container">
+                    <button data-modal-link="modal_1" type='button'>I show modal page</button>
+                </div>
+                <!-- ? Use if you need a side menu. -->
+                <section class='sidepanel'>
+                    <div class="sidepanel__body">
+                        <ul class='navmenu__list'>
+                            <li>
+                                <a href="facebook.com" target="_blank" rel="noopener noreferrer">
+                                    facebook
+                                </a>
+                            </li>
+                            <li>
+                                <a href="twitter.com" target="_blank" rel="noopener noreferrer">
+                                    twitter
+                                </a>
+                            </li>
+                            <li>
+                                <a href="instagram.com" target="_blank" rel="noopener noreferrer">
+                                    instagram
+                                </a>
+                            </li>
+                            <li>
+                                <a href="youtu.be" target="_blank" rel="noopener noreferrer">
+                                    youtube
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <button class="fullscreen__scroll" type='button' data-scroll-to="content">Scroll</button>
+            </section>
+            <section class='content'>
+                <div class="content__body">
+                </div>
+            </section>
+            <!-- ! Swiper
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                        <div class="swiper-slide">
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </main>
+
+    @@include('_footer.html')
+
+    <!-- <section id="modal_1" class='modal-window'>
+        <div class="modal-window__body">
+            <div class="modal-window__content">
+                <button type='button' class="modal-closer">close me</button>
+
+            </div>
+        </div>
+    </section> -->
+</body>
+@@include('_scripts.html')
+
+</html>

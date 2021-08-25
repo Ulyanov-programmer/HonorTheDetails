@@ -1,0 +1,165 @@
+@import "mixins"
+
+.header
+    display: flex
+    justify-content: center
+    padding: 20px 0px 20px 0px
+
+    z-index: 5
+
+    &__body
+        display: flex
+        flex-flow: column nowrap
+        justify-content: center
+        align-items: center
+        padding: 0px 10px 0px 10px
+
+        .logo
+            @media (min-width: 200px)
+                @include adaptive-property ('margin-bottom',20, 10)
+
+.fixed-header
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 5
+    @include size(100%, auto)
+    *
+        z-index: 5
+
+.navmenu
+    @media (max-width: 200px)
+        display: none
+
+    &__body
+        display: flex
+        height: 100%
+
+    &__list
+        display: flex
+        flex-flow: row wrap
+        justify-content: center
+
+        li
+            display: flex
+            justify-content: center
+            align-items: center
+
+            padding: 10px 0px 10px 0px
+            @include adaptive-property ('padding-right',45, 10)
+
+            &:last-child
+                padding-right: 0
+
+            a
+                display: flex
+                justify-content: center
+                align-items: center
+
+                transition: all 0.3s ease 0s
+                border-bottom: 2px solid #00000000
+                @include size(100%, 100%)
+
+                letter-spacing: 6px
+                padding: 0px 0px 5px 0px
+                @include adaptive-property ('font-size',20, 12)
+                color: white
+
+                @media (max-width: 426px)
+                    letter-spacing: 3px
+
+                &:hover
+                    border-color: #fff
+
+.fullscreen-navmenu
+    position: fixed
+    top: 0
+    left: -100%
+    z-index: -1
+    @include size (100%,100%)
+    @include adaptive-property ('font-size',25, 20)
+    color: #fff
+
+    display: flex
+    flex-flow: column nowrap
+
+    background: #000000ad
+    transition: all 0.5s ease
+
+    &.active
+        left: 0
+
+    &__body
+        display: flex
+        flex-flow: column nowrap
+        align-items: center
+        z-index: 3
+        overflow: auto
+        &:before
+            position: relative
+            top: 0
+            left: 0
+            z-index: 3
+            width: 100%
+            content: url('.')
+            flex: 0 0 70px
+            background: $background
+
+    ul
+        overflow: auto
+        width: 100%
+        li
+            text-align: center
+            padding: 25px 0px 25px 0px
+            margin: 0 auto
+
+            width: 50%
+            cursor: pointer
+            border-bottom: 1px solid #fff
+
+            &:hover
+                color: #beafaf
+
+            &:last-child
+                border: none
+            a
+                color: #fff
+
+.header__burger
+    display: none
+    border-radius: 0px
+    background-color: transparent
+
+    @media (max-width: 600px)
+        z-index: 5
+        display: flex
+        justify-content: center
+        align-items: center
+
+        width: 40px
+        height: 20px
+
+        border-top: 0.2em solid black
+        border-bottom: 0.2em solid black
+
+        cursor: pointer
+        transition: all 0.5s
+
+        span
+            height: 0.18em
+            width: 100%
+            background-color: #000
+            transition: all 0.5s
+
+    &.active
+        border-color: #000
+        transform: rotateZ(450deg)
+        span
+            background-color: #000
+
+.logo
+    font-family: Gotham-Black
+    z-index: 10
+    color: #fff
+    padding: 5px 5px 5px 5px
+    border: 1.5px solid #fff
