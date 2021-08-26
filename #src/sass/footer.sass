@@ -1,78 +1,132 @@
+$secondTextColor: #694fca
+$footerMainFF: Roboto-Medium
+$footerMainTextColor: #999999
+
 .footer
     background: #212121
-
+    color: #fff
+    font-family: $footerMainFF
+    color: $footerMainTextColor
     display: flex
     justify-content: center
     min-height: 100px
+    a
+        color: #fff
 
     &__body
-        display: flex
-        flex-flow: column nowrap
-        justify-content: center
-        align-items: center
         padding: 28px 0px 80px 0px
 
         text-transform: uppercase
 
+        @media (max-width: 426px)
+            padding: 28px 0px 20px 0px
+
     &__top
-        font-family: Roboto-Medium
         display: flex
-        width: 100% 
+        flex-flow: row wrap
+        width: 100%
         justify-content: space-between
+        align-items: flex-start
 
         padding: 0px 0px 30px 0px
         margin: 0px 0px 30px 0px
         border-bottom: 1px solid #2c2c2c
 
+        @media (max-width: 426px)
+            padding: 0px 0px 10px 0px
+            margin: 0px 0px 20px 0px
+
     &__bottom
         display: flex
-        flex-flow: column wrap
+        flex-flow: row wrap
         justify-content: space-between
 
+        text-transform: none
+
     &__title
-        display: inline-block
         color: #ffffff
         font-family: Roboto-Bold
         @include adaptive-property ('font-size',14, 14)
         letter-spacing: 2.8px
         margin: 0px 0px 30px 0px
+        text-transform: uppercase
 
         @media (max-width: 426px)
             margin: 0px 0px 10px 0px
 
-.telephone
+    &__block
+        display: flex
+        flex: 1 0 30%
+        min-width: 300px
+        margin: 10px 60px 10px 0px
+        &:last-child
+            margin-right: 0
+            min-width: auto
 
-    &__number
-        &:before
-            text-transform: uppercase
-            letter-spacing: 2.6px
-            content: url('Call Now: ')
+        @media (max-width: 426px)
+            margin-right: 0
 
-.logo
+.contacts-block
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 0px 10px 0px 10px
 
-.mail
-    a
-        &:before
-            text-transform: uppercase
-            letter-spacing: 2.6px
-            content: url('Mail: ')
+    *
+        letter-spacing: 2.6px
+        @include adaptive-property ('font-size',13, 10)
+        &:hover
+            text-decoration: underline
+
+    &:before
+        display: inline-block
+
+        @include size (16px,16px)
+        margin: 0px 15px 0px 0px
+        content: ''
+
+    @media (max-width: 426px)
+        padding-bottom: 20px
 
 .about-us
 
     &__body
 
+    &__content
+        display: flex
+        @media (max-width: 426px)
+            flex-flow: column nowrap
+
     &__title
+        width: 100%
 
     &__image
-        width: 170px
-        padding: 0px 0px 130px 0px
+        min-width: 170px
+        max-height: 130px
+        padding: 0px 10px 130px 0px
 
     &__info
         display: inline-block
 
+    &__text
+        padding: 0px 0px 30px 20px
+        color: #999999
+        text-transform: none
+        line-height: 30px
+        margin: -10px 0px 0px 0px
+        @include adaptive-property ('font-size',12, 11)
+
+        @media (max-width: 426px)
+            margin: 20px 0 0 0
+            padding: 0px 0px 10px 0px
+
 .socials
+    padding: 0px 0px 0px 20px
+    @media (max-width: 426px)
+        padding: 0
 
     &__item
+        padding: 0px 0px 5px 0px
 
 .newsletter
 
@@ -81,23 +135,115 @@
     &__title
 
     &__text
+        @include adaptive-property ('font-size',12, 11)
+        line-height: 1.75
+        letter-spacing: 2.4px
+        margin: 0px 0px 25px 0px
 
     &__form
+        display: flex
+        flex-flow: column nowrap
+        *
+            margin: 0px 0px 10px 0px
+        input
+            @include adaptive-property ('font-size',12, 11)
+            letter-spacing: 2.4px
+            color: #999
+            font-family: $footerMainFF
 
-.from-blog
+            padding: 13px 0px 13px 13px
+            background: #212121
+            border: 1px solid #454545
+            transition: all 0.2s ease
 
-    &__body
+            &:focus
+                color: #161616
+                background: #999
+        button
+            transition: all 0.2s ease
+            background: #694fca
+            color: #fff
+            border: 1px solid #694fca
 
-    &__title
+            font-family: Roboto-Light
+            letter-spacing: 2.8px
+            @include adaptive-property ('font-size',14, 12)
+            padding: 14px 15px 14px 15px
+            max-width: 130px
 
-    &__blogs
+            &:hover
+                background: #533f9946
+            &:active
+                background: none
 
-    &__image
-        width: 60px
-        padding: 0px 0px 60px 0px
+// .from-blog
+
+//     &__body
+
+//     &__title
+
+//     &__blogs
 
 .blog
 
+    &__body
+        display: flex
+        margin: 0px 0px 12px 0px
+        @include adaptive-property ('font-size',12, 11)
+
+        cursor: pointer
+        transition: all 0.2s ease
+
+        &:hover
+            @include adaptive-property ('font-size',15, 12)
+
+    &__image
+        min-width: 60px
+        padding: 0px 0px 60px 0px
+
+    &__content
+        padding: 0px 0px 0px 25px
+        *
+            margin: 0px 0px 10px 0px
+            &:last-child
+                margin-bottom: 0
+
     &__title
+        position: relative
+        &:before
+            position: absolute
+            display: inline-block
+            left: -14px
+            top: 2px
+            line-height: 1
+
+            @include size (7px,7px)
+            background: url('../images/icons/right-arrow.svg') no-repeat center / contain
+            color: #fff
+            content: ""
 
     &__date
+        letter-spacing: 2.4px
+        color: $secondTextColor
+
+.telephone
+    &:before
+        background: url('../images/footer/icons/phone.png') no-repeat center / contain
+    &__number
+        &:before
+            text-transform: uppercase
+            content: 'Call Now: '
+
+.mail
+    &:before
+        background: url('../images/footer/icons/mail.png') no-repeat center / contain
+
+    a
+        letter-spacing: 2.6px
+        color: $secondTextColor
+
+        &:before
+            color: #fff
+            text-transform: uppercase
+            letter-spacing: 2.6px
+            content: 'Mail: '

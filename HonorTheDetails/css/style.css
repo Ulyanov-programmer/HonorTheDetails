@@ -156,6 +156,14 @@ h6 {
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Roboto-Light";
+  font-display: swap;
+  src: url("../fonts/Roboto-Light.woff") format("woff"), url("../fonts/Roboto-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
 .adaptive-image {
   display: block;
   position: relative;
@@ -380,10 +388,14 @@ h6 {
   color: #fff;
   padding: 5px 5px 5px 5px;
   border: 1.5px solid #fff;
+  font-size: calc(20px + (30 - 20) * ((100vw - 320px) / (1200 - 320)));
 }
 
 .footer {
   background: #212121;
+  color: #fff;
+  font-family: Roboto-Medium;
+  color: #999999;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -393,33 +405,30 @@ h6 {
   min-height: 100px;
 }
 
+.footer a {
+  color: #fff;
+}
+
 .footer__body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   padding: 28px 0px 80px 0px;
   text-transform: uppercase;
 }
 
 .footer__top {
-  font-family: Roboto-Medium;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
   width: 100%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   padding: 0px 0px 30px 0px;
   margin: 0px 0px 30px 0px;
   border-bottom: 1px solid #2c2c2c;
@@ -429,48 +438,247 @@ h6 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  text-transform: none;
 }
 
 .footer__title {
-  display: inline-block;
   color: #ffffff;
   font-family: Roboto-Bold;
   font-size: calc(14px + (14 - 14) * ((100vw - 320px) / (1200 - 320)));
   letter-spacing: 2.8px;
   margin: 0px 0px 30px 0px;
+  text-transform: uppercase;
 }
 
-.telephone__number:before {
-  text-transform: uppercase;
-  letter-spacing: 2.6px;
-  content: url("Call Now: ");
+.footer__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 30%;
+          flex: 1 0 30%;
+  min-width: 300px;
+  margin: 10px 60px 10px 0px;
 }
 
-.mail a:before {
-  text-transform: uppercase;
+.footer__block:last-child {
+  margin-right: 0;
+  min-width: auto;
+}
+
+.contacts-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0px 10px 0px 10px;
+}
+
+.contacts-block * {
   letter-spacing: 2.6px;
-  content: url("Mail: ");
+  font-size: calc(10px + (13 - 10) * ((100vw - 320px) / (1200 - 320)));
+}
+
+.contacts-block *:hover {
+  text-decoration: underline;
+}
+
+.contacts-block:before {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0px 15px 0px 0px;
+  content: '';
+}
+
+.about-us__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.about-us__title {
+  width: 100%;
 }
 
 .about-us__image {
-  width: 170px;
-  padding: 0px 0px 130px 0px;
+  min-width: 170px;
+  max-height: 130px;
+  padding: 0px 10px 130px 0px;
 }
 
 .about-us__info {
   display: inline-block;
 }
 
-.from-blog__image {
-  width: 60px;
+.about-us__text {
+  padding: 0px 0px 30px 20px;
+  color: #999999;
+  text-transform: none;
+  line-height: 30px;
+  margin: -10px 0px 0px 0px;
+  font-size: calc(11px + (12 - 11) * ((100vw - 320px) / (1200 - 320)));
+}
+
+.socials {
+  padding: 0px 0px 0px 20px;
+}
+
+.socials__item {
+  padding: 0px 0px 5px 0px;
+}
+
+.newsletter__text {
+  font-size: calc(11px + (12 - 11) * ((100vw - 320px) / (1200 - 320)));
+  line-height: 1.75;
+  letter-spacing: 2.4px;
+  margin: 0px 0px 25px 0px;
+}
+
+.newsletter__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.newsletter__form * {
+  margin: 0px 0px 10px 0px;
+}
+
+.newsletter__form input {
+  font-size: calc(11px + (12 - 11) * ((100vw - 320px) / (1200 - 320)));
+  letter-spacing: 2.4px;
+  color: #999;
+  font-family: Roboto-Medium;
+  padding: 13px 0px 13px 13px;
+  background: #212121;
+  border: 1px solid #454545;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.newsletter__form input:focus {
+  color: #161616;
+  background: #999;
+}
+
+.newsletter__form button {
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  background: #694fca;
+  color: #fff;
+  border: 1px solid #694fca;
+  font-family: Roboto-Light;
+  letter-spacing: 2.8px;
+  font-size: calc(12px + (14 - 12) * ((100vw - 320px) / (1200 - 320)));
+  padding: 14px 15px 14px 15px;
+  max-width: 130px;
+}
+
+.newsletter__form button:hover {
+  background: #533f9946;
+}
+
+.newsletter__form button:active {
+  background: none;
+}
+
+.blog__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0px 0px 12px 0px;
+  font-size: calc(11px + (12 - 11) * ((100vw - 320px) / (1200 - 320)));
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.blog__body:hover {
+  font-size: calc(12px + (15 - 12) * ((100vw - 320px) / (1200 - 320)));
+}
+
+.blog__image {
+  min-width: 60px;
   padding: 0px 0px 60px 0px;
+}
+
+.blog__content {
+  padding: 0px 0px 0px 25px;
+}
+
+.blog__content * {
+  margin: 0px 0px 10px 0px;
+}
+
+.blog__content *:last-child {
+  margin-bottom: 0;
+}
+
+.blog__title {
+  position: relative;
+}
+
+.blog__title:before {
+  position: absolute;
+  display: inline-block;
+  left: -14px;
+  top: 2px;
+  line-height: 1;
+  width: 7px;
+  height: 7px;
+  background: url("../images/icons/right-arrow.svg") no-repeat center/contain;
+  color: #fff;
+  content: "";
+}
+
+.blog__date {
+  letter-spacing: 2.4px;
+  color: #694fca;
+}
+
+.telephone:before {
+  background: url("../images/footer/icons/phone.png") no-repeat center/contain;
+}
+
+.telephone__number:before {
+  text-transform: uppercase;
+  content: 'Call Now: ';
+}
+
+.mail:before {
+  background: url("../images/footer/icons/mail.png") no-repeat center/contain;
+}
+
+.mail a {
+  letter-spacing: 2.6px;
+  color: #694fca;
+}
+
+.mail a:before {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2.6px;
+  content: 'Mail: ';
 }
 
 body {
@@ -614,7 +822,7 @@ body.fixed {
 
 @media (min-width: 1200px) {
   .container {
-    width: 80%;
+    width: 90%;
     height: auto;
   }
 }
@@ -656,8 +864,41 @@ body.fixed {
     letter-spacing: 3px;
   }
 
+  .footer__body {
+    padding: 28px 0px 20px 0px;
+  }
+
+  .footer__top {
+    padding: 0px 0px 10px 0px;
+    margin: 0px 0px 20px 0px;
+  }
+
   .footer__title {
     margin: 0px 0px 10px 0px;
+  }
+
+  .footer__block {
+    margin-right: 0;
+  }
+
+  .contacts-block {
+    padding-bottom: 20px;
+  }
+
+  .about-us__content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+  }
+
+  .about-us__text {
+    margin: 20px 0 0 0;
+    padding: 0px 0px 10px 0px;
+  }
+
+  .socials {
+    padding: 0;
   }
 }
 
