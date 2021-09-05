@@ -26,25 +26,70 @@ body
     &__body
 
 .fullscreen
-    // ? I recommend save this if you use sidepanel in fullscreen.
     position: relative
 
     display: flex
     justify-content: center
     align-items: center
 
-    @include size(auto, 100vh)
-    min-height: 500px
+    @include size(auto, 130vh)
+    min-height: 900px
     z-index: 3
 
-    background: url('../images/Layer 15.jpg') no-repeat center / cover
-    
+    background: url('../images/fullscreenBG.jpg') no-repeat bottom / cover
 
     &__body
+        color: #fff
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-flow: column nowrap
+        *
+            margin: 0px 0px 20px 0px
+            &:last-child
+                margin-bottom: 0
+
+    &__title
+        color: #ffa800
+        @include adaptive-property ('font-size',70, 40)
+
+    &__subtitle
+        text-align: center
+        line-height: 1.25
+        @include adaptive-property ('font-size',25, 20)
+        letter-spacing: 8px
 
     &__scroll
+        z-index: 5
+        text-transform: uppercase
+        font-family: $mainFontFamily
+        color: #fff
+        letter-spacing: 5.2px
+        @include adaptive-property ('font-size',24, 15)
+
+        display: flex
+        flex-flow: column nowrap
         position: absolute
-        bottom: 5%
+        bottom: 13%
+        margin: auto
+
+        &:before
+            position: relative
+            top: 0
+            right: 10%
+            margin-left: auto
+            display: inline-block
+            @include adaptive-property ('height',60, 45)
+            @include adaptive-property ('width',60, 45)
+            border-left: 1px solid #fff
+            border-right: 1px solid #fff
+            border-top: 1px solid #fff
+            content: ''
+        &:after
+            display: inline-block
+            margin: auto
+            content: url('../images/icons/arrowBottom.png')
+            padding: 70% 0px 0px 0px
 
 .content
     text-align: center
@@ -74,34 +119,17 @@ body
         padding: 35px 55px 35px 35px
 
 .container
-    @media (min-width: 1200px)
-        @include size(90%, auto)
+    @media (min-width: $containerWidth + px)
+        width: 70%
 
-    @media (min-width: $containerWidth + px) and (max-width: 1199px)
-        width: $containerWidth + px
+    @media (min-width: 768px) and (max-width: $containerWidth + px)
+        width: 70%
 
-    @media (min-width: 426px) and (max-width: $containerWidth + px)
+    @media (min-width: 426px) and (max-width: 768px)
         width: 80%
 
     @media (max-width: 425px)
         width: 95%
-
-
-.sidepanel
-    position: absolute
-    height: 100%
-    right: 0
-    top: 0
-
-    &__body
-        @include size (100%, 100%)
-
-    ul
-        height: 100%
-        display: flex
-        justify-content: center
-        align-items: center
-        flex-flow: column nowrap
 
 .modal-window
     position: fixed

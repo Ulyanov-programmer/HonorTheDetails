@@ -18,7 +18,7 @@ $footerMainTextColor: #999999
 
         text-transform: uppercase
 
-        @media (max-width: 426px)
+        @media (max-width: 510px)
             padding: 28px 0px 20px 0px
 
     &__top
@@ -63,7 +63,7 @@ $footerMainTextColor: #999999
             margin-right: 0
             min-width: auto
 
-        @media (max-width: 426px)
+        @media (max-width: 510px)
             margin-right: 0
 
 .contacts-block
@@ -74,7 +74,7 @@ $footerMainTextColor: #999999
 
     *
         letter-spacing: 2.6px
-        @include adaptive-property ('font-size',13, 10)
+        @include adaptive-property ('font-size',14, 12)
         &:hover
             text-decoration: underline
 
@@ -89,12 +89,16 @@ $footerMainTextColor: #999999
         padding-bottom: 20px
 
 .about-us
+    min-width: 420px
+
+    @media (max-width: 510px)
+        min-width: 0px
 
     &__body
 
     &__content
         display: flex
-        @media (max-width: 426px)
+        @media (max-width: 510px)
             flex-flow: column nowrap
 
     &__title
@@ -114,19 +118,31 @@ $footerMainTextColor: #999999
         text-transform: none
         line-height: 30px
         margin: -10px 0px 0px 0px
-        @include adaptive-property ('font-size',12, 11)
+        @include adaptive-property ('font-size',13, 12)
 
-        @media (max-width: 426px)
+        @media (max-width: 510px)
             margin: 20px 0 0 0
             padding: 0px 0px 10px 0px
 
 .socials
     padding: 0px 0px 0px 20px
-    @media (max-width: 426px)
-        padding: 0
+
+    a
+        display: inline-block
+
+        @include size (36px,36px)
+        margin: 0px 10px 10px 0px
+        border: 1px solid transparent
+        border-radius: 50%
+        transition: all 0.2s ease
+
+        @media (max-width: 426px)
+            margin: 10px 10px 10px 0px
+        &:hover
+            border-color: white
 
     &__item
-        padding: 0px 0px 5px 0px
+        @include size (100%,100%)
 
 .newsletter
 
@@ -135,7 +151,7 @@ $footerMainTextColor: #999999
     &__title
 
     &__text
-        @include adaptive-property ('font-size',12, 11)
+        @include adaptive-property ('font-size',13, 12)
         line-height: 1.75
         letter-spacing: 2.4px
         margin: 0px 0px 25px 0px
@@ -146,7 +162,7 @@ $footerMainTextColor: #999999
         *
             margin: 0px 0px 10px 0px
         input
-            @include adaptive-property ('font-size',12, 11)
+            @include adaptive-property ('font-size',13, 12)
             letter-spacing: 2.4px
             color: #999
             font-family: $footerMainFF
@@ -189,7 +205,7 @@ $footerMainTextColor: #999999
     &__body
         display: flex
         margin: 0px 0px 12px 0px
-        @include adaptive-property ('font-size',12, 11)
+        @include adaptive-property ('font-size',13, 12)
 
         cursor: pointer
         transition: all 0.2s ease

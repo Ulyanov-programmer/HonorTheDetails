@@ -4,8 +4,7 @@
     display: flex
     justify-content: center
     padding: 20px 0px 20px 0px
-
-    z-index: 5
+    position: relative
 
     &__body
         display: flex
@@ -24,8 +23,6 @@
     left: 0
     z-index: 5
     @include size(100%, auto)
-    *
-        z-index: 5
 
 .navmenu
     @media (max-width: 200px)
@@ -62,7 +59,7 @@
 
                 letter-spacing: 6px
                 padding: 0px 0px 5px 0px
-                @include adaptive-property ('font-size',20, 12)
+                @include adaptive-property ('font-size',15, 12)
                 color: white
 
                 @media (max-width: 426px)
@@ -164,3 +161,51 @@
     padding: 5px 5px 5px 5px
     border: 1.5px solid #fff
     @include adaptive-property ('font-size',30, 20)
+
+.sidepanel
+    position: absolute
+    right: 30px
+    top: 50%
+
+    &__body
+        @include size (100%, 100%)
+
+    ul
+        height: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-flow: column nowrap
+        li
+            transform: rotate(-89.9deg)
+            padding: 0
+            transition: all 0.2s ease
+            &:hover
+                transform: none
+
+            a
+                padding: 50px 0px 50px 0px
+                color: #fff
+                border: none
+
+    .phone
+        @include adaptive-property ('width', 25, 15)
+        @include adaptive-property ('height', 25, 15)
+        padding: 0px 0px 0px 0px
+
+        background: #ffa800
+        border-radius: 50%
+        border: none
+        transform: rotate(-0deg)
+        transition: all 0.2s ease
+
+        img
+            @include size (50%,50%)
+        picture
+            display: flex
+            justify-content: center
+            align-items: center
+
+        &:hover
+            @include adaptive-property ('width', 35, 25)
+            @include adaptive-property ('height', 35, 25)
