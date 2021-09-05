@@ -43,7 +43,8 @@
             align-items: center
 
             padding: 10px 0px 10px 0px
-            @include adaptive-property ('padding-right',45, 10)
+            @include adaptive-property ('padding-right',22, 10)
+            @include adaptive-property ('padding-left',22, 10)
 
             &:last-child
                 padding-right: 0
@@ -167,8 +168,10 @@
     right: 30px
     top: 50%
 
+    @media (max-width: 850px)
+        display: none
+
     &__body
-        @include size (100%, 100%)
 
     ul
         height: 100%

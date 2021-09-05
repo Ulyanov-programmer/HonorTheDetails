@@ -14,6 +14,7 @@ body
     height: 100%
     color: $mainFontColor
     font-family: $mainFontFamily
+    background: #000000ee
     text-transform: uppercase
     @include adaptive-property ('font-size',18,12)
 
@@ -27,16 +28,23 @@ body
 
 .fullscreen
     position: relative
-
     display: flex
     justify-content: center
     align-items: center
 
-    @include size(auto, 130vh)
+    @include size(auto, 150vh)
     min-height: 900px
-    z-index: 3
 
     background: url('../images/fullscreenBG.jpg') no-repeat bottom / cover
+
+    @media (min-width: 1600px)
+        background: url('../images/fullscreenBG.jpg') no-repeat center / cover
+
+    @media (max-width: 768px)
+        min-height: 750px
+    @media (max-width: 600px)
+        min-height: 550px
+        @include size(auto, 100vh)
 
     &__body
         color: #fff
@@ -48,6 +56,10 @@ body
             margin: 0px 0px 20px 0px
             &:last-child
                 margin-bottom: 0
+
+    .fullscreen__title, .fullscreen__subtitle
+        @media (min-width: 600px)
+            transform: translate(0,-100px)
 
     &__title
         color: #ffa800
@@ -72,6 +84,9 @@ body
         position: absolute
         bottom: 13%
         margin: auto
+
+        @media (max-width: 600px)
+            display: none
 
         &:before
             position: relative

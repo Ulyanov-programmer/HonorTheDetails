@@ -248,7 +248,8 @@ h6 {
       -ms-flex-align: center;
           align-items: center;
   padding: 10px 0px 10px 0px;
-  padding-right: calc(10px + (45 - 10) * ((100vw - 320px) / (1200 - 320)));
+  padding-right: calc(10px + (22 - 10) * ((100vw - 320px) / (1200 - 320)));
+  padding-left: calc(10px + (22 - 10) * ((100vw - 320px) / (1200 - 320)));
 }
 
 .navmenu__list li:last-child {
@@ -391,11 +392,6 @@ h6 {
   position: absolute;
   right: 30px;
   top: 50%;
-}
-
-.sidepanel__body {
-  width: 100%;
-  height: 100%;
 }
 
 .sidepanel ul {
@@ -639,6 +635,10 @@ h6 {
   border-color: white;
 }
 
+.socials a.__mobile-link {
+  display: none;
+}
+
 .socials__item {
   width: 100%;
   height: 100%;
@@ -789,6 +789,7 @@ body {
   height: 100%;
   color: #000000;
   font-family: "Abraham-Lincoln";
+  background: #000000ee;
   text-transform: uppercase;
   font-size: calc(12px + (18 - 12) * ((100vw - 320px) / (1200 - 320)));
 }
@@ -813,9 +814,8 @@ body.fixed {
       -ms-flex-align: center;
           align-items: center;
   width: auto;
-  height: 130vh;
+  height: 150vh;
   min-height: 900px;
-  z-index: 3;
   background: url("../images/fullscreenBG.jpg") no-repeat bottom/cover;
 }
 
@@ -967,9 +967,40 @@ body.fixed {
   }
 }
 
+@media (min-width: 600px) {
+  .fullscreen .fullscreen__title,
+  .fullscreen .fullscreen__subtitle {
+    -webkit-transform: translate(0, -100px);
+        -ms-transform: translate(0, -100px);
+            transform: translate(0, -100px);
+  }
+}
+
 @media (min-width: 1200px) {
   .container {
     width: 70%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .fullscreen {
+    background: url("../images/fullscreenBG.jpg") no-repeat center/cover;
+  }
+}
+
+@media (max-width: 850px) {
+  .sidepanel {
+    display: none;
+  }
+
+  .socials a.__mobile-link {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .fullscreen {
+    min-height: 750px;
   }
 }
 
@@ -1002,6 +1033,16 @@ body.fixed {
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     transition: all 0.5s;
+  }
+
+  .fullscreen {
+    min-height: 550px;
+    width: auto;
+    height: 100vh;
+  }
+
+  .fullscreen__scroll {
+    display: none;
   }
 }
 

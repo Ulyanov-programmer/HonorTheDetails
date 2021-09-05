@@ -141,6 +141,11 @@ $footerMainTextColor: #999999
         &:hover
             border-color: white
 
+        &.__mobile-link
+            display: none
+            @media (max-width: 850px)
+                display: block
+
     &__item
         @include size (100%,100%)
 
