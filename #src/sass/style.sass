@@ -43,7 +43,7 @@ body
     @media (min-width: 1600px)
         background: url('../images/fullscreenBG.jpg') no-repeat center / cover
         min-height: 1300px
-    
+
     @media (max-width: 600px)
         min-height: 550px
         @include size(auto, 100vh)
@@ -114,8 +114,10 @@ body
 .fs-block
 
     &__body
-        @include size (auto,100vh)
-        min-height: 500px
+        min-height: 100vh
+        height: max-content
+
+        @include adaptive-property ("padding-bottom",80, 20)
 
 .inviter
     background: #694fca
@@ -130,7 +132,7 @@ body
 
     &__frame
         position: relative
-        transform: translate(0,-50%)
+        transform: translate(0,-50%) //fix this
         display: flex
         flex-flow: column nowrap
         justify-content: flex-end
@@ -144,7 +146,7 @@ body
 
         @media (max-width: 500px)
             transform: translate(0,-20%)
-            @include adaptive-property ('padding-right', 30, 10)
+            @include adaptive-property ('padding', 30, 10)
 
     &__number
         position: absolute
@@ -159,7 +161,6 @@ body
             transform: none
 
     &__title
-        @include adaptive-property ('font-size',60, 30)
 
     &__subtitle
         @include adaptive-property ('font-size',20, 15)
@@ -175,6 +176,87 @@ body
 
         @media (max-width: 500px)
             transform: translate(30%,90%)
+
+.step-reverse
+    .step__frame
+        align-items: flex-end
+        text-align: right
+        padding-right: 30px
+        @include adaptive-property ('padding-left', 80, 30)
+
+        @media (max-width: 500px)
+            @include adaptive-property ('padding', 30, 10)
+
+    .step__image
+        left: 0
+        transform: translate(-60%,35%)
+
+    .step__number
+        right: 0
+        transform: translate(25%,20%)
+
+.advantages
+
+    &__body
+        display: grid
+        grid-template: 'title info info' 0.7fr 'info-block info-block info-block' 1fr / 1fr 1fr 1fr
+        gap: 50px
+        text-align: left
+        align-items: center
+        text-transform: none
+        font-family: Poppins-Regular
+
+        @media (max-width: 900px)
+            gap: 25px
+
+        @media (max-width: 500px)
+            grid-template: 'title info' 200px 'info-block info-block' 1fr / 1fr 1fr
+    
+    &__title
+        grid-area: title
+        font-family: $mainFontFamily
+
+    &__info
+        grid-area: info
+        line-height: 2
+
+.advantage
+    *
+        margin: 0px 0px 25px 0px
+        &:last-child
+            margin-bottom: 0
+
+    @media (max-width: 426px)
+        display: flex
+        flex-flow: column nowrap
+        justify-content: center
+        align-items: center
+        text-align: center
+
+    &__icon
+        @include adaptive-property ('width', 40, 30)
+        @include adaptive-property ('padding-bottom', 40, 30)
+
+    &__name
+        display: inline-block
+        font-family: $mainFontFamily
+        text-transform: uppercase
+        color: #ffa800
+        @include adaptive-property ('font-size',30, 25)
+
+        &:after
+            display: block
+            content: ''
+
+            @include adaptive-property ('width', 50, 30)
+            border-bottom: 1px solid #fff
+            padding: 0px 0px 25px 0px
+
+            @media (max-width: 426px)
+                margin: auto
+
+    &__info
+        line-height: 1.88
 
 .adaptive-image
 
@@ -200,7 +282,11 @@ body
     &:hover
         padding: 35px 55px 35px 35px
 
+.block-title
+    @include adaptive-property ('font-size',70, 30)
+
 .container
+    margin: auto
     @media (min-width: $containerWidth + px)
         width: 70%
 

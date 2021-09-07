@@ -899,9 +899,11 @@ body.fixed {
 }
 
 .fs-block__body {
-  width: auto;
-  height: 100vh;
-  min-height: 500px;
+  min-height: 100vh;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  padding-bottom: calc(20px + (80 - 20) * ((100vw - 320px) / (1200 - 320)));
 }
 
 .inviter {
@@ -955,10 +957,6 @@ body.fixed {
   font-size: calc(75px + (150 - 75) * ((100vw - 320px) / (1200 - 320)));
 }
 
-.step__title {
-  font-size: calc(30px + (60 - 30) * ((100vw - 320px) / (1200 - 320)));
-}
-
 .step__subtitle {
   font-size: calc(15px + (20 - 15) * ((100vw - 320px) / (1200 - 320)));
   padding: 3px 0px 3px 0px;
@@ -973,6 +971,84 @@ body.fixed {
           transform: translate(60%, 35%);
   width: calc(140px + (280 - 140) * ((100vw - 320px) / (1200 - 320)));
   padding-bottom: calc(100px + (200 - 100) * ((100vw - 320px) / (1200 - 320)));
+}
+
+.step-reverse .step__frame {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  text-align: right;
+  padding-right: 30px;
+  padding-left: calc(30px + (80 - 30) * ((100vw - 320px) / (1200 - 320)));
+}
+
+.step-reverse .step__image {
+  left: 0;
+  -webkit-transform: translate(-60%, 35%);
+      -ms-transform: translate(-60%, 35%);
+          transform: translate(-60%, 35%);
+}
+
+.step-reverse .step__number {
+  right: 0;
+  -webkit-transform: translate(25%, 20%);
+      -ms-transform: translate(25%, 20%);
+          transform: translate(25%, 20%);
+}
+
+.advantages__body {
+  display: grid;
+  grid-template: 'title info info' 0.7fr 'info-block info-block info-block' 1fr / 1fr 1fr 1fr;
+  gap: 50px;
+  text-align: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-transform: none;
+  font-family: Poppins-Regular;
+}
+
+.advantages__title {
+  grid-area: title;
+  font-family: "Abraham-Lincoln";
+}
+
+.advantages__info {
+  grid-area: info;
+  line-height: 2;
+}
+
+.advantage * {
+  margin: 0px 0px 25px 0px;
+}
+
+.advantage *:last-child {
+  margin-bottom: 0;
+}
+
+.advantage__icon {
+  width: calc(30px + (40 - 30) * ((100vw - 320px) / (1200 - 320)));
+  padding-bottom: calc(30px + (40 - 30) * ((100vw - 320px) / (1200 - 320)));
+}
+
+.advantage__name {
+  display: inline-block;
+  font-family: "Abraham-Lincoln";
+  text-transform: uppercase;
+  color: #ffa800;
+  font-size: calc(25px + (30 - 25) * ((100vw - 320px) / (1200 - 320)));
+}
+
+.advantage__name:after {
+  display: block;
+  content: '';
+  width: calc(30px + (50 - 30) * ((100vw - 320px) / (1200 - 320)));
+  border-bottom: 1px solid #fff;
+  padding: 0px 0px 25px 0px;
+}
+
+.advantage__info {
+  line-height: 1.88;
 }
 
 .swiper-button-next,
@@ -999,6 +1075,14 @@ body.fixed {
 
 .swiper-button-prev:hover {
   padding: 35px 55px 35px 35px;
+}
+
+.block-title {
+  font-size: calc(30px + (70 - 30) * ((100vw - 320px) / (1200 - 320)));
+}
+
+.container {
+  margin: auto;
 }
 
 .modal-window {
@@ -1067,6 +1151,12 @@ body.fixed {
 @media (min-width: 2300px) {
   .fullscreen {
     min-height: 1500px;
+  }
+}
+
+@media (max-width: 900px) {
+  .advantages__body {
+    gap: 25px;
   }
 }
 
@@ -1155,7 +1245,7 @@ body.fixed {
     -webkit-transform: translate(0, -20%);
         -ms-transform: translate(0, -20%);
             transform: translate(0, -20%);
-    padding-right: calc(10px + (30 - 10) * ((100vw - 320px) / (1200 - 320)));
+    padding: calc(10px + (30 - 10) * ((100vw - 320px) / (1200 - 320)));
   }
 
   .step__number {
@@ -1169,6 +1259,14 @@ body.fixed {
     -webkit-transform: translate(30%, 90%);
         -ms-transform: translate(30%, 90%);
             transform: translate(30%, 90%);
+  }
+
+  .step-reverse .step__frame {
+    padding: calc(10px + (30 - 10) * ((100vw - 320px) / (1200 - 320)));
+  }
+
+  .advantages__body {
+    grid-template: 'title info' 200px 'info-block info-block' 1fr / 1fr 1fr;
   }
 }
 
@@ -1192,6 +1290,27 @@ body.fixed {
 
   .socials a {
     margin: 10px 10px 10px 0px;
+  }
+
+  .advantage {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+  }
+
+  .advantage__name:after {
+    margin: auto;
   }
 }
 
