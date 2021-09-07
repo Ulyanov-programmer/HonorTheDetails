@@ -32,16 +32,18 @@ body
     justify-content: center
     align-items: center
 
-    @include size(auto, 150vh)
-    min-height: 900px
+    @include size(auto, 100vh)
+    min-height: 1100px
 
     background: url('../images/fullscreenBG.jpg') no-repeat bottom / cover
 
+    @media (min-width: 2300px)
+        min-height: 1500px
+
     @media (min-width: 1600px)
         background: url('../images/fullscreenBG.jpg') no-repeat center / cover
-
-    @media (max-width: 768px)
-        min-height: 750px
+        min-height: 1300px
+    
     @media (max-width: 600px)
         min-height: 550px
         @include size(auto, 100vh)
@@ -81,11 +83,9 @@ body
 
         display: flex
         flex-flow: column nowrap
-        position: absolute
-        bottom: 13%
         margin: auto
 
-        @media (max-width: 600px)
+        @media (max-width: 550px)
             display: none
 
         &:before
@@ -110,6 +110,73 @@ body
     text-align: center
 
     &__body
+
+.fs-block
+
+    &__body
+        @include size (auto,100vh)
+        min-height: 500px
+
+.inviter
+    background: #694fca
+    color: #fff
+
+.step
+
+    &__body
+        display: flex
+        justify-content: center
+        align-items: center
+
+    &__frame
+        position: relative
+        transform: translate(0,-50%)
+        display: flex
+        flex-flow: column nowrap
+        justify-content: flex-end
+
+        @include adaptive-property ('padding', 30, 10)
+        @include adaptive-property ('padding-right', 80, 30)
+        border: solid 10px #fff
+        text-align: left
+        @include adaptive-property ('width', 500, 250)
+        @include adaptive-property ('height', 500, 250)
+
+        @media (max-width: 500px)
+            transform: translate(0,-20%)
+            @include adaptive-property ('padding-right', 30, 10)
+
+    &__number
+        position: absolute
+        bottom: 0
+        left: 0%
+        transform: translate(-120%,20%)
+        color: #ffa800
+        @include adaptive-property ('font-size',150, 75)
+
+        @media (max-width: 500px)
+            position: static
+            transform: none
+
+    &__title
+        @include adaptive-property ('font-size',60, 30)
+
+    &__subtitle
+        @include adaptive-property ('font-size',20, 15)
+        padding: 3px 0px 3px 0px
+
+    &__image
+        position: absolute
+        bottom: 0
+        right: 0
+        transform: translate(60%,35%)
+        @include adaptive-property ('width',280, 140)
+        @include adaptive-property ('padding-bottom',200, 100)
+
+        @media (max-width: 500px)
+            transform: translate(30%,90%)
+
+.adaptive-image
 
 .swiper-button-next, .swiper-button-prev
     display: inline-block
