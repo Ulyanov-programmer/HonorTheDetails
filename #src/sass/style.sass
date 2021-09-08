@@ -120,10 +120,16 @@ body
         @include adaptive-property ("padding-bottom",80, 20)
 
 .inviter
+    position: relative
     background: #694fca
     color: #fff
 
+$stepToMobileWidth: 740px
 .step
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
 
     &__body
         display: flex
@@ -144,7 +150,7 @@ body
         @include adaptive-property ('width', 500, 250)
         @include adaptive-property ('height', 500, 250)
 
-        @media (max-width: 500px)
+        @media (max-width: $stepToMobileWidth)
             transform: translate(0,-20%)
             @include adaptive-property ('padding', 30, 10)
 
@@ -156,7 +162,7 @@ body
         color: #ffa800
         @include adaptive-property ('font-size',150, 75)
 
-        @media (max-width: 500px)
+        @media (max-width: $stepToMobileWidth)
             position: static
             transform: none
 
@@ -174,7 +180,7 @@ body
         @include adaptive-property ('width',280, 140)
         @include adaptive-property ('padding-bottom',200, 100)
 
-        @media (max-width: 500px)
+        @media (max-width: $stepToMobileWidth)
             transform: translate(30%,90%)
 
 .step-reverse
@@ -184,7 +190,7 @@ body
         padding-right: 30px
         @include adaptive-property ('padding-left', 80, 30)
 
-        @media (max-width: 500px)
+        @media (max-width: $stepToMobileWidth)
             @include adaptive-property ('padding', 30, 10)
 
     .step__image
@@ -196,6 +202,10 @@ body
         transform: translate(25%,20%)
 
 .advantages
+    @include adaptive-property ('padding-top',400, 300)
+
+    @media (max-width: $stepToMobileWidth)
+        @include adaptive-property ('padding-top',500, 330)
 
     &__body
         display: grid
@@ -208,17 +218,49 @@ body
 
         @media (max-width: 900px)
             gap: 25px
-
+        @media (max-width: 768px)
+            align-items: start
         @media (max-width: 500px)
-            grid-template: 'title info' 200px 'info-block info-block' 1fr / 1fr 1fr
-    
+            grid-template: 'title title' 0.3fr 'info info' 0.3fr 'info-block info-block' 1fr / 1fr 1fr
+
+
     &__title
         grid-area: title
         font-family: $mainFontFamily
 
     &__info
         grid-area: info
-        line-height: 2
+        @include adaptive-property ('line-height',30, 20)
+        @include adaptive-property ('font-size',16, 12)
+
+    &__info-block
+        // ! Delete this if you use an even number of blocks.
+        @media (max-width: 500px)
+            &:last-child
+                grid-column: span 2
+                grid-row: span 2
+
+    &__slider
+
+    &__pagination
+        position: static !important
+        margin: 50px 0px 0px 0px
+
+        .swiper-pagination-bullet
+            width: 13px
+            height: 5px
+            opacity: 1
+            border-radius: 12px
+            background: #fff
+            transition: all 0.2s ease
+
+        .swiper-pagination-bullet-active
+            background: #ffa800
+            padding: 0px 15px 0px 15px
+            &:first-child
+                padding: 0px 0px 0px 30px
+            &:last-child
+                 padding: 0px 30px 0px 0px
 
 .advantage
     *
@@ -226,7 +268,7 @@ body
         &:last-child
             margin-bottom: 0
 
-    @media (max-width: 426px)
+    @media (max-width: 500px)
         display: flex
         flex-flow: column nowrap
         justify-content: center
@@ -252,13 +294,11 @@ body
             border-bottom: 1px solid #fff
             padding: 0px 0px 25px 0px
 
-            @media (max-width: 426px)
+            @media (max-width: 500px)
                 margin: auto
 
     &__info
         line-height: 1.88
-
-.adaptive-image
 
 .swiper-button-next, .swiper-button-prev
     display: inline-block
@@ -283,7 +323,7 @@ body
         padding: 35px 55px 35px 35px
 
 .block-title
-    @include adaptive-property ('font-size',70, 30)
+    @include adaptive-property ('font-size',70, 40)
 
 .container
     margin: auto
