@@ -38,6 +38,7 @@ body
     background: url('../images/fullscreenBG.jpg') no-repeat bottom / cover
 
     @media (min-width: 1600px)
+        transform: translate(xy)
         background: url('../images/fullscreenBG.jpg') no-repeat center / cover
 
     @media (max-width: 600px)
@@ -53,10 +54,6 @@ body
             margin: 0px 0px 20px 0px
             &:last-child
                 margin-bottom: 0
-
-    .fullscreen__title, .fullscreen__subtitle
-        @media (min-width: 600px)
-            transform: translate(0,-100px)
 
     &__title
         color: #ffa800
@@ -177,6 +174,9 @@ $stepToMobileWidth: 740px
         @media (max-width: $stepToMobileWidth)
             transform: translate(30%,90%)
 
+.step-block
+    position: relative
+
 .step-reverse
     .step__frame
         align-items: flex-end
@@ -190,10 +190,36 @@ $stepToMobileWidth: 740px
     .step__image
         left: 0
         transform: translate(-60%,35%)
+        @media (max-width: $stepToMobileWidth)
+            transform: translate(-30%,90%)
 
     .step__number
         right: 0
         transform: translate(25%,20%)
+        @media (max-width: $stepToMobileWidth)
+            position: static
+            transform: none
+
+    .step__subimage
+        position: absolute
+        bottom: 0
+        left: 0
+        transform: translate(-60%,160%)
+        @include adaptive-property ('width',350, 150)
+        @include adaptive-property ('padding-bottom',120, 60)
+
+        @media (max-width: $stepToMobileWidth)
+            transform: translate(90%,120%)
+
+.step-2
+    background: #fff
+
+    .step__frame
+        border-color: #000
+    .step__number
+        color: #000
+        right: 0
+        transform: translate(30%,20%)
 
 .advantages
     @include adaptive-property ('padding-top',400, 300)
@@ -296,10 +322,10 @@ $stepToMobileWidth: 740px
 .video
     background: url('../images/videoBG.jpg') no-repeat bottom / cover
 
-    @include adaptive-property ('min-height',900, 500)
+    @include adaptive-property ('min-height',900, 400)
+    position: relative
 
     &__body
-        position: relative
         padding: 10% 0px 10% 0px
 
     &__title
@@ -340,19 +366,150 @@ $stepToMobileWidth: 740px
             border: 1px solid #bebebe
             border-radius: 50%
             @include size (50%,50%)
-            font-size: 1em
+            @include adaptive-property ('font-size',20, 15)
+            line-height: 1.5em
 
     &__play-button-layer
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        margin: auto
         display: inline-flex
         justify-content: center
         align-items: center
         margin: auto
         border: 1px solid #a5a4a4
         border-radius: 50%
-        margin: 7% 0px 0px 0px
 
         @include adaptive-property ('width', 150, 75)
         @include adaptive-property ('height', 150, 75)
+
+.about-us
+
+    position: relative
+    &__body
+        padding: 700px 0px 0px 0px
+
+        .about-us__bg
+            z-index: -1
+            position: absolute
+            top: 0
+            left: 50%
+            transform: translateX(-50%)
+            @include size (100%,100%)
+
+            object-fit: cover
+
+    &__info
+        *
+            padding: 0px 0px 30px 0px
+            &:last-child
+                padding-bottom: 0
+
+    &__title
+
+    &__subtitle
+        letter-spacing: 8px
+        line-height: 1.25
+        @include adaptive-property ('font-size',30, 20)
+
+    &__delimiter
+        margin: 20px 0px 20px 0px
+
+        @media (max-width: 768px)
+            display: none
+
+        span
+            display: block
+            height: 80px
+            width: 2px
+            background: #000
+            margin: auto
+
+    &__about-customers
+        font-family: Poppins-Regular
+        text-transform: none
+
+.customer-reviews
+    padding: 30px 0px 30px 0px
+    margin: -15px -15px -15px -15px
+
+    &__body
+        display: flex
+        flex-flow: row wrap
+        justify-content: center
+        align-items: center
+
+.customer-review
+    flex: 0 0 33.33%
+
+    &:hover
+        .customer-review__body
+            background: #694fca
+            box-shadow: 0 20px 12px rgba(0,0,0,0.4)
+
+        .customer-review__rating, .customer-review__review
+            color: #fff
+
+        .customer-review__name, .customer-review__location
+            color: #fc9936
+
+    &__body
+        background: #fff
+        padding: 30px 30px 30px 30px
+        min-height: 500px
+        min-width: 300px
+        margin: 15px 15px 15px 15px
+        display: flex
+        flex-flow: column nowrap
+        justify-content: space-between
+        align-items: center
+
+        transition: all 0.2s ease
+
+    &__image
+        width: 105px
+        padding: 0px 0px 105px 0px
+        margin: 0px 0px 40px 0px
+        @include adaptive-property ('width', 105, 104)
+        @include adaptive-property ('padding-bottom', 105, 104)
+        img
+            border-radius: 50%
+
+    &__rating
+        color: #ff8610
+        margin: 0px 0px 20px 0px
+        @include adaptive-property ('font-size',22, 21)
+        transition: all 0.2s ease
+
+    &__review
+        text-transform: none
+        margin: 0px 0px 30px 0px
+        line-height: 30px
+        transition: all 0.2s ease
+        @include adaptive-property ('font-size',16, 14)
+        font-family: Georgia
+
+        &:before
+            content: '“ '
+        &:after
+            content: ' ”'
+
+    &__name
+        font-family: Roboto-Bold
+        letter-spacing: 2.8px
+        margin: 0px 0px 5px 0px
+        @include adaptive-property ('font-size',14, 13)
+        transition: all 0.2s ease
+
+    &__location
+        font-family: Roboto
+        color: #999999
+        letter-spacing: 1.68px
+        @include adaptive-property ('font-size',13, 12)
+        transition: all 0.2s ease
 
 .block-title
     @include adaptive-property ('font-size',70, 40)
