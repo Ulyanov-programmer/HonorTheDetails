@@ -4,11 +4,11 @@
 let modalLinks = doc.querySelectorAll('[data-modal-link]');
 
 for (let modalLink of modalLinks) {
-    modalLink.addEventListener("click", function (e) {
-        let popupId = modalLink.dataset.modalLink;
+    modalLink.addEventListener("click", () => {
+        let modalId = modalLink.dataset.modalLink;
 
-        if (popupId !== undefined) {
-            let modal = doc.getElementById(popupId);
+        if (modalId !== undefined) {
+            let modal = doc.getElementById(modalId);
             showOrHideModal(modal);
         }
     });
@@ -16,7 +16,7 @@ for (let modalLink of modalLinks) {
 
 let modalClosers = doc.querySelectorAll('.modal-closer');
 for (const modalCloser of modalClosers) {
-    modalCloser.addEventListener("click", function (e) {
+    modalCloser.addEventListener("click", () => {
         closeModal(modalCloser.closest('.modal-window'), true);
     });
 }
@@ -25,7 +25,7 @@ for (const modalCloser of modalClosers) {
 // To fix this, it will be padded in the size of the scrollbar.
 function returnScrollbarWidth() {
     let scrollbarWidth = innerWindowWidth() - doc.querySelector('html').clientWidth;
-    
+
     return scrollbarWidth;
 }
 
@@ -48,7 +48,7 @@ function showOrHideModal(modalElement) {
 
         modalElement.classList.add("active");
     }
-    modalElement.addEventListener("click", function (e) {
+    modalElement.addEventListener("click", (e) => {
 
         // Checks if the pressed element has a CONTENT parent, if not, closes the modal.
         if (!e.target.closest('.modal-window__content')) {
@@ -59,7 +59,14 @@ function showOrHideModal(modalElement) {
 
 function closeModal(modalWindow, bodyIsScrollable) {
     if (unlock) {
+        let video = document.querySelector('iframe');
+        let videoClone = video.cloneNode(true);
+
         modalWindow.classList.remove("active");
+        setTimeout(() => {
+            video.insertAdjacentElement('afterend', videoClone);
+            video.remove();
+        }, 300);
 
         if (bodyIsScrollable) {
             toggleBodyScroll(true);
@@ -83,10 +90,10 @@ function toggleBodyScroll(toggleScrollOn) {
     }, transitionTimeout * 1000);
 }
 
-doc.addEventListener('keydown', function (key) {
+doc.addEventListener('keydown', (key) => {
+
     if (key.code === 'Escape') {
         let activeModal = doc.querySelector('.modal-window.active');
         closeModal(activeModal, true);
     }
 });
-

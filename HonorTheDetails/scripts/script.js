@@ -13,11 +13,11 @@ let innerWindowHeight = () => window.innerHeight;
 let modalLinks = doc.querySelectorAll('[data-modal-link]');
 
 for (let modalLink of modalLinks) {
-    modalLink.addEventListener("click", function (e) {
-        let popupId = modalLink.dataset.modalLink;
+    modalLink.addEventListener("click", () => {
+        let modalId = modalLink.dataset.modalLink;
 
-        if (popupId !== undefined) {
-            let modal = doc.getElementById(popupId);
+        if (modalId !== undefined) {
+            let modal = doc.getElementById(modalId);
             showOrHideModal(modal);
         }
     });
@@ -25,7 +25,7 @@ for (let modalLink of modalLinks) {
 
 let modalClosers = doc.querySelectorAll('.modal-closer');
 for (const modalCloser of modalClosers) {
-    modalCloser.addEventListener("click", function (e) {
+    modalCloser.addEventListener("click", () => {
         closeModal(modalCloser.closest('.modal-window'), true);
     });
 }
@@ -34,7 +34,7 @@ for (const modalCloser of modalClosers) {
 // To fix this, it will be padded in the size of the scrollbar.
 function returnScrollbarWidth() {
     let scrollbarWidth = innerWindowWidth() - doc.querySelector('html').clientWidth;
-    
+
     return scrollbarWidth;
 }
 
@@ -57,7 +57,7 @@ function showOrHideModal(modalElement) {
 
         modalElement.classList.add("active");
     }
-    modalElement.addEventListener("click", function (e) {
+    modalElement.addEventListener("click", (e) => {
 
         // Checks if the pressed element has a CONTENT parent, if not, closes the modal.
         if (!e.target.closest('.modal-window__content')) {
@@ -68,7 +68,14 @@ function showOrHideModal(modalElement) {
 
 function closeModal(modalWindow, bodyIsScrollable) {
     if (unlock) {
+        let video = document.querySelector('iframe');
+        let videoClone = video.cloneNode(true);
+
         modalWindow.classList.remove("active");
+        setTimeout(() => {
+            video.insertAdjacentElement('afterend', videoClone);
+            video.remove();
+        }, 300);
 
         if (bodyIsScrollable) {
             toggleBodyScroll(true);
@@ -92,60 +99,14 @@ function toggleBodyScroll(toggleScrollOn) {
     }, transitionTimeout * 1000);
 }
 
-doc.addEventListener('keydown', function (key) {
+doc.addEventListener('keydown', (key) => {
+
     if (key.code === 'Escape') {
         let activeModal = doc.querySelector('.modal-window.active');
         closeModal(activeModal, true);
     }
-});
+});;
 
-;
-function showOrHideFullscreenNav(e) {
-    const fsNavmenu = doc.querySelector('.fullscreen-navmenu');
-    let sbWidth = innerWindowWidth() - doc.querySelector('html').clientWidth;
-    let header = doc.querySelector('header');
-
-    if (fsNavmenu !== undefined) {
-        burger.classList.toggle('active');
-        
-        body.classList.toggle('fixed');
-        body.style.paddingRight = sbWidth + 'px';
-
-        header.classList.toggle('fixed-header');
-        header.style.paddingRight = sbWidth + 'px';
-
-        fsNavmenu.classList.toggle('active');
-    }
-}
-const burger = doc.getElementById('burgerButton');
-burger.addEventListener('click', showOrHideFullscreenNav);;
-
-
-function showOrHideSubmenu(e) {
-    const menuButton = e.target;
-    const allSubmenu = doc.querySelectorAll('.navmenu__submenu');
-    const allMenuButtons = doc.querySelectorAll('.submenu-open-button');
-
-    // Hides all previously active menus and menu buttons.
-    for (let i = 0; i < allSubmenu.length; i++) {
-
-        if (allSubmenu[i] !== menuButton.firstElementChild &&
-            allMenuButtons[i] !== menuButton) {
-
-            allMenuButtons[i].classList.remove('show');
-            allSubmenu[i].classList.remove('show');
-        }
-    }
-
-    if (menuButton.firstElementChild !== undefined) {
-        menuButton.classList.toggle('active');
-        menuButton.firstElementChild.classList.toggle('show');
-    }
-}
-const activateSubmenuButtons = doc.querySelectorAll('.submenu-open-button');
-for (let submenuButton of activateSubmenuButtons) {
-    submenuButton.addEventListener('click', showOrHideSubmenu);
-}
 
 // ? Use this if you have scroll buttons.
 function scrollToElement(eventData) {
@@ -155,7 +116,7 @@ function scrollToElement(eventData) {
         let scrolltop = window.pageYOffset + scrollElement.getBoundingClientRect().top;
 
         window.scrollTo({
-            top: scrolltop - 50,
+            top: scrolltop,
             behavior: "smooth"
         });
     }
@@ -164,25 +125,3 @@ let scrollButtons = doc.querySelectorAll('[data-scroll-to]');
 for (let scrollButton of scrollButtons) {
     scrollButton.addEventListener('click', scrollToElement);
 }
-
-/* ? the headerToFixed function
-function headerToFixed(e) {
-    // Calculating the degree of scrolling in pixels,
-    // multiply the innerWindowHeight by the desired scrolling percentage as 0.percent.
-    // Example:
-    //  25 percent of innerWindowHeight = innerWindowHeight * 0.25
-    //  5 percent of 700 = 700 * 0.05
-
-    var scrollPercentage = innerWindowHeight * 0.15;
-
-    if (pageYOffset > scrollPercentage) {
-        burger.classList.add('burger-black');
-        header.classList.add('fixed-header');
-    } else {
-        burger.classList.remove('burger-black');
-        header.classList.remove('fixed-header');
-    }
-}
-const header = doc.querySelector('.header__body');
-window.addEventListener('scroll', headerToFixed);
-*/

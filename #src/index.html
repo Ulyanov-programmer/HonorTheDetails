@@ -16,6 +16,7 @@
                     <span class="fullscreen__subtitle">We bring your products or services across in ways
                         that make people feel good as they engage with your business</span>
                     <button class="fullscreen__scroll" type='button' data-scroll-to="content">Scroll</button>
+                    <span class="fullscreen__copyright">copyright 2016, untiy template</span>
                 </div>
             </section>
             <section class='content'>
@@ -218,7 +219,7 @@
                                 Experiences for
                                 clients all over the World.</p>
                             <div class="video__play-button-layer">
-                                <button class="video__play-button" aria-label='play-video' type='button'>
+                                <button data-modal-link="video" class="video__play-button" aria-label='play-video' type='button'>
                                     <span>▶</span>
                                 </button>
                             </div>
@@ -315,12 +316,12 @@
 
     @@include('_footer.html')
 
-    <section id="modal_1" class='modal-window'>
+    <section id="video" class='modal-window'>
         <div class="modal-window__body">
-            <div class="modal-window__content">
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/sgnWv3lQnJk?controls=0"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            <div class="modal-window__content container">
+                <iframe src="https://www.youtube-nocookie.com/embed/sgnWv3lQnJk?controls=0"
+                    title="Our video" frameborder="0"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             </div>
         </div>

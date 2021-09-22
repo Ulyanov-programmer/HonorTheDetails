@@ -75,7 +75,7 @@ body
 
         display: flex
         flex-flow: column nowrap
-        margin: auto
+        margin: 10% auto 0 auto
 
         @media (max-width: 550px)
             display: none
@@ -98,8 +98,27 @@ body
             content: url('../images/icons/arrowBottom.png')
             padding: 70% 0px 0px 0px
 
+    &__copyright
+        position: absolute
+        bottom: 15%
+        right: -24px
+        letter-spacing: 3px
+        @include adaptive-property ('font-size',12, 12)
+
+        transform: rotate(-89.9deg)
+        transition: all 0.2s ease
+        @media (max-width: 950px)
+            transform: none
+            left: 1%
+            right: 0
+            bottom: 0
+            top: 1%
+            color: #686868
+
 .content
     text-align: center
+    @media (max-width: 426px)
+        overflow-x: hidden
 
     &__body
 
@@ -392,6 +411,9 @@ $stepToMobileWidth: 740px
     &__body
         padding: 700px 0px 0px 0px
 
+        @media (max-width: 1370px)
+            padding: 50px 0px 0px 0px
+
         .about-us__bg
             z-index: -1
             position: absolute
@@ -418,7 +440,7 @@ $stepToMobileWidth: 740px
     &__delimiter
         margin: 20px 0px 20px 0px
 
-        @media (max-width: 768px)
+        @media (max-width: 1370px)
             display: none
 
         span
@@ -481,7 +503,7 @@ $stepToMobileWidth: 740px
     &__rating
         color: #ff8610
         margin: 0px 0px 20px 0px
-        @include adaptive-property ('font-size',22, 21)
+        @include adaptive-property ('font-size',24, 23)
         transition: all 0.2s ease
 
     &__review
@@ -551,3 +573,12 @@ $stepToMobileWidth: 740px
         height: 100%
         justify-content: center
         align-items: center
+
+    &__content
+
+    iframe
+        width: 100%
+        height: auto
+        min-height: 300px
+
+        object-fit: cover

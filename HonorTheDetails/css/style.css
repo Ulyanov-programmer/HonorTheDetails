@@ -880,7 +880,7 @@ body.fixed {
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
-  margin: auto;
+  margin: 10% auto 0 auto;
 }
 
 .fullscreen__scroll:before {
@@ -902,6 +902,20 @@ body.fixed {
   margin: auto;
   content: url("../images/icons/arrowBottom.png");
   padding: 70% 0px 0px 0px;
+}
+
+.fullscreen__copyright {
+  position: absolute;
+  bottom: 15%;
+  right: -24px;
+  letter-spacing: 3px;
+  font-size: calc(12px + (12 - 12) * ((100vw - 320px) / (1200 - 320)));
+  -webkit-transform: rotate(-89.9deg);
+      -ms-transform: rotate(-89.9deg);
+          transform: rotate(-89.9deg);
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .content {
@@ -1354,7 +1368,7 @@ body.fixed {
 .customer-review__rating {
   color: #ff8610;
   margin: 0px 0px 20px 0px;
-  font-size: calc(21px + (22 - 21) * ((100vw - 320px) / (1200 - 320)));
+  font-size: calc(23px + (24 - 23) * ((100vw - 320px) / (1200 - 320)));
   -webkit-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
@@ -1442,6 +1456,14 @@ body.fixed {
           align-items: center;
 }
 
+.modal-window iframe {
+  width: 100%;
+  height: auto;
+  min-height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 @media (min-width: 200px) {
   .header__body .logo {
     margin-bottom: calc(10px + (20 - 10) * ((100vw - 320px) / (1200 - 320)));
@@ -1460,6 +1482,29 @@ body.fixed {
         -ms-transform: translate(xy);
             transform: translate(xy);
     background: url("../images/fullscreenBG.jpg") no-repeat center/cover;
+  }
+}
+
+@media (max-width: 1370px) {
+  .about-us__body {
+    padding: 50px 0px 0px 0px;
+  }
+
+  .about-us__delimiter {
+    display: none;
+  }
+}
+
+@media (max-width: 950px) {
+  .fullscreen__copyright {
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+    left: 1%;
+    right: 0;
+    bottom: 0;
+    top: 1%;
+    color: #686868;
   }
 }
 
@@ -1484,10 +1529,6 @@ body.fixed {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: start;
-  }
-
-  .about-us__delimiter {
-    display: none;
   }
 }
 
@@ -1661,6 +1702,10 @@ body.fixed {
 
   .socials a {
     margin: 10px 10px 10px 0px;
+  }
+
+  .content {
+    overflow-x: hidden;
   }
 
   .video__bg-title {
