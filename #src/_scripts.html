@@ -3,12 +3,21 @@
 <script type="module">
     import Swiper from 'https://unpkg.com/swiper/swiper-bundle.esm.browser.min.js'
 
-    const swiper = new Swiper('.advantages__slider', {
+    const advantagesSwiper = new Swiper('.advantages__slider', {
         pagination: {
             el: '.advantages__pagination'
         },
         spaceBetween: 150,
         autoHeight: true,
+        slidesPerView: 1,
+        watchOverflow: true,
+    });
+    const swiperWhatDo = new Swiper('.swTwo', {
+        navigation: {
+            nextEl: '.what-we-do__next-el',
+            prevEl: '.what-we-do__prev-el',
+        },
+        spaceBetween: 150,
         slidesPerView: 1,
         watchOverflow: true,
     });

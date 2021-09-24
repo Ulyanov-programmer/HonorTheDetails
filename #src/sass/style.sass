@@ -50,6 +50,10 @@ body
         justify-content: center
         align-items: center
         flex-flow: column nowrap
+
+        @media (max-width: 426px)
+            margin: 70px 0px 0px 0px
+
         *
             margin: 0px 0px 20px 0px
             &:last-child
@@ -119,6 +123,7 @@ body
     text-align: center
     @media (max-width: 426px)
         overflow-x: hidden
+        overflow-y: hidden
 
     &__body
 
@@ -405,6 +410,160 @@ $stepToMobileWidth: 740px
         @include adaptive-property ('width', 150, 75)
         @include adaptive-property ('height', 150, 75)
 
+.what-we-do
+    $toMobileWidth: 1050px
+    background: #fff
+    min-height: 550px
+
+    @media (max-width: $toMobileWidth)
+        min-height: 1000px
+
+    &__body
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+        @media (max-width: $toMobileWidth)
+            display: block
+
+    &__container
+        margin: auto
+
+        @media (max-width: $toMobileWidth)
+            padding: 15% 0px 5% 0px
+
+        @media (min-width: 768px)
+            width: 90%
+
+        @media (min-width: 426px) and (max-width: 768px)
+            width: 80%
+
+        @media (max-width: 425px)
+            width: 95%
+
+    &__slider
+        display: contents
+        flex: 1 0 60%
+
+    &__square
+        position: relative
+        width: 40%
+        padding: 50px 0px 50px 0px
+        border: 15px solid black
+
+        @media (max-width: 1300px)
+            width: 35%
+        @media (max-width: $toMobileWidth)
+            border: none
+            width: 100%
+            padding-top: 90px
+
+    .swiper
+        margin-right: -60%
+        margin-left: -10%
+        @media (max-width: $toMobileWidth)
+            margin: auto
+
+    &__slide-image
+        padding: 0px 0px 50% 0px
+
+        @media (max-width: 600px)
+            padding-bottom: 100%
+
+        img
+            object-fit: contain
+
+    &__advantages
+        display: grid
+        gap: 50px
+
+        grid-template: repeat(3, 1fr) / repeat(2, 1fr)
+        align-items: center
+        justify-items: center
+
+        @media (max-width: 425px)
+            justify-items: start
+
+    &__slide-info
+        @media (max-width: $toMobileWidth)
+            position: absolute
+            width: 80%
+            top: 55%
+            left: 50%
+            transform: translate(-50%, -50%) !important
+
+    &__advantage
+        display: flex
+        justify-content: center
+        align-items: center
+        font-weight: 600
+
+        img
+            display: inline-block
+            @include size (50px,50px)
+            margin: 0px 20px 0px 0px
+
+    &__number
+        bottom: -20%
+        right: 0
+        left: auto
+        transform: none
+
+        color: #000
+
+        @media (max-width: 740px)
+            position: static
+            
+        @media (max-width: $toMobileWidth)
+            top: 5%
+            bottom: auto
+            right: auto
+            left: 50%
+            transform: translate(-50%, -50%) !important
+
+        @media (max-width: 426px)
+            top: 10%
+
+.slide-info
+    display: block
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(0%, -50%)
+    background: #694fca
+    z-index: 2
+
+    &__body
+        padding: 30px 15px 30px 15px
+        text-align: left
+
+        @media (max-width: 1300px)
+            padding: 20px 13px 20px 13px
+        *
+            display: inline-block
+            padding: 0px 0px 10px 0px
+            &:last-child
+                padding-bottom: 0
+
+    &__title
+        text-transform: uppercase
+        color: #ffa800
+        @include adaptive-property ('font-size',30, 25)
+
+    &__info
+        text-transform: none
+        font-family: Poppins-Light
+        line-height: 2.22
+        @include adaptive-property ('font-size',13, 12)
+        color: #fff
+
+        @media (max-width: 1300px)
+            line-height: 1.4
+
+.what-we-do__next-el
+
+.what-we-do__prev-el
+
 .about-us
 
     position: relative
@@ -575,10 +734,11 @@ $stepToMobileWidth: 740px
         align-items: center
 
     &__content
+        height: 80%
 
     iframe
         width: 100%
-        height: auto
+        height: 100%
         min-height: 300px
 
         object-fit: cover
