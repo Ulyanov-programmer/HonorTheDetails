@@ -770,7 +770,7 @@ h6 {
   line-height: 1;
   width: 7px;
   height: 7px;
-  background: url("../images/icons/right-arrow.svg") no-repeat center/contain;
+  background: url("../images/icons/arrowRight.svg") no-repeat center/contain;
   color: #fff;
   content: "";
 }
@@ -911,7 +911,9 @@ body.fixed {
   display: inline-block;
   margin: auto;
   content: url("../images/icons/arrowBottom.png");
-  padding: 70% 0px 0px 0px;
+  -webkit-transform: translate(0, 75px);
+      -ms-transform: translate(0, 75px);
+          transform: translate(0, 75px);
 }
 
 .fullscreen__copyright {

@@ -1,5 +1,12 @@
-# Default Project
-Default Project - my standard project to start any layout. It will be gradually updated and supplemented, this is not the final version.
+# HonorTheDetails
+HonorTheDetails - a business site for companies with many sliders and an unusual design.
+
+
+
+<p align="center">
+  <img src="readmeFiles/preview.png" height=600px/>
+  <img src="readmeFiles/previewMOB.png" height=400px />
+</p>
 
 <details>
  <summary>RU Описание</summary>
