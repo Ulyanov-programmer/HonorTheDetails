@@ -27,3 +27,12 @@ let scrollButtons = doc.querySelectorAll('[data-scroll-to]');
 for (let scrollButton of scrollButtons) {
     scrollButton.addEventListener('click', scrollToElement);
 }
+
+function closeSlideInfo(eArgs) {
+    let infoBlock = eArgs.currentTarget.offsetParent;
+    infoBlock.remove();
+}
+const closeButtons = document.querySelectorAll('.slide-info__close');
+for (const closeButton of closeButtons) {
+    closeButton.addEventListener('click', closeSlideInfo);
+}

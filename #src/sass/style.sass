@@ -166,7 +166,7 @@ $stepToMobileWidth: 740px
         @include adaptive-property ('height', 500, 250)
 
         @media (max-width: $stepToMobileWidth)
-            transform: translate(0,-20%)
+            transform: translate(0,-17%)
             @include adaptive-property ('padding', 30, 10)
 
     &__number
@@ -417,8 +417,11 @@ $stepToMobileWidth: 740px
 
     @media (max-width: $toMobileWidth)
         min-height: 1000px
+    @media (max-width: 768px)
+        min-height: 0
 
     &__body
+        position: relative
         display: flex
         justify-content: space-between
         align-items: center
@@ -430,7 +433,8 @@ $stepToMobileWidth: 740px
         margin: auto
 
         @media (max-width: $toMobileWidth)
-            padding: 15% 0px 5% 0px
+            padding: 10% 0px 10% 0px
+            min-height: auto
 
         @media (min-width: 768px)
             width: 90%
@@ -472,6 +476,8 @@ $stepToMobileWidth: 740px
 
         img
             object-fit: contain
+            @media (max-width: 600px)
+                object-fit: cover
 
     &__advantages
         display: grid
@@ -479,10 +485,15 @@ $stepToMobileWidth: 740px
 
         grid-template: repeat(3, 1fr) / repeat(2, 1fr)
         align-items: center
-        justify-items: center
+        justify-items: left
 
-        @media (max-width: 425px)
+        @media (min-width: 1440px)
+            gap: 75px
+        @media (max-width: $toMobileWidth)
+            margin: 0px 20% 0px 20%
+        @media (max-width: 700px)
             justify-items: start
+            margin: 0px 0% 0px 0%
 
     &__slide-info
         @media (max-width: $toMobileWidth)
@@ -504,18 +515,22 @@ $stepToMobileWidth: 740px
             margin: 0px 20px 0px 0px
 
     &__number
-        bottom: -20%
-        right: 0
+        position: absolute
+        bottom: 15%
+        right: 33%
         left: auto
         transform: none
 
         color: #000
 
+        @media (max-width: 1300px)
+            right: 37%
+
         @media (max-width: 740px)
-            position: static
-            
+            position: absolute
+
         @media (max-width: $toMobileWidth)
-            top: 5%
+            top: 8%
             bottom: auto
             right: auto
             left: 50%
@@ -534,7 +549,7 @@ $stepToMobileWidth: 740px
     z-index: 2
 
     &__body
-        padding: 30px 15px 30px 15px
+        padding: 30px 30px 30px 30px
         text-align: left
 
         @media (max-width: 1300px)
@@ -548,7 +563,7 @@ $stepToMobileWidth: 740px
     &__title
         text-transform: uppercase
         color: #ffa800
-        @include adaptive-property ('font-size',30, 25)
+        @include adaptive-property ('font-size',40, 25)
 
     &__info
         text-transform: none
@@ -560,9 +575,61 @@ $stepToMobileWidth: 740px
         @media (max-width: 1300px)
             line-height: 1.4
 
-.what-we-do__next-el
+    &__close
+        position: absolute
+        top: 10%
+        right: 5%
 
-.what-we-do__prev-el
+        @include size (25px,25px)
+        transition: all 0.2s ease
+
+        &:hover
+            transform: rotate(90deg)
+
+        img
+            @include size (100%,100%)
+
+.what-we-do__navigation
+    position: absolute
+    z-index: 10
+    top: 10%
+    left: 15%
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    @media (max-width: 600px)
+        top: 22%
+        left: 5%
+    @media (max-width: 426px)
+        display: none
+
+    .swiper-button-disabled
+        filter: contrast(0.2)
+
+    .what-we-do__prev-el
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin-right: 25px
+        cursor: pointer
+
+        &:hover
+            text-decoration: underline
+
+        img
+            @include size (30px,30px)
+            object-fit: contain
+            transform: rotate(180deg)
+
+            margin-right: 10px
+
+    .what-we-do__next-el
+        @extend .what-we-do__prev-el
+
+        img
+            transform: none
+            margin-left: 10px
 
 .about-us
 

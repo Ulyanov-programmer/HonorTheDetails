@@ -1,4 +1,4 @@
-<script defer src="scripts/script.js"></script>
+<script defer src="scripts/script.min.js"></script>
 <!-- Swiper -->
 <script type="module">
     import Swiper from 'https://unpkg.com/swiper/swiper-bundle.esm.browser.min.js'
@@ -11,8 +11,9 @@
         autoHeight: true,
         slidesPerView: 1,
         watchOverflow: true,
+        parallax: true,
     });
-    const swiperWhatDo = new Swiper('.swTwo', {
+    const swiperWhatDo = new Swiper('.what-we-do-slider', {
         navigation: {
             nextEl: '.what-we-do__next-el',
             prevEl: '.what-we-do__prev-el',
@@ -20,5 +21,10 @@
         spaceBetween: 150,
         slidesPerView: 1,
         watchOverflow: true,
+        autoplay: {
+            delay: 3000,
+            stopOnLastSlide: false,
+        },
+        parallax: true,
     });
 </script>
