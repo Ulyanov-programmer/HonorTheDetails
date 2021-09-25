@@ -4,8 +4,8 @@ HonorTheDetails - a business site for companies with many sliders and an unusual
 
 
 <p align="center">
-  <img src="readmeFiles/preview.png" height=600px/>
-  <img src="readmeFiles/previewMOB.png" height=400px />
+  <img src="readmeFiles/preview.jpg" height=600px/>
+  <img src="readmeFiles/previewMOB.jpg" height=400px />
 </p>
 
 <details>
