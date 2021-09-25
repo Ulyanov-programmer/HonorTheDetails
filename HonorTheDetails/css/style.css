@@ -1685,7 +1685,7 @@ body.fixed {
   height: 80%;
 }
 
-.modal-window iframe {
+.modal-window video {
   width: 100%;
   height: 100%;
   min-height: 300px;

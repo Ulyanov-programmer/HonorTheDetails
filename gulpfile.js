@@ -11,6 +11,7 @@ let paths = {
         css: `${projectFolder}/css/`,
         scripts: `${projectFolder}/scripts/`,
         images: `${projectFolder}/images/`,
+        video: `${projectFolder}/video/`,
         fonts: `${projectFolder}/fonts/`,
     },
     scr: {
@@ -18,6 +19,7 @@ let paths = {
         css: `${sourceFolder}/sass/style.sass`,
         scripts: `${sourceFolder}/scripts/script.js`,
         images: `${sourceFolder}/images/**/*.{jpg,png,svg,gif,ico,webp}`,
+        video: `${projectFolder}/video/*.{mp4,webm}`,
         fonts: `${sourceFolder}/fonts/*.ttf`,
     },
     watch: {
@@ -25,6 +27,7 @@ let paths = {
         css: `${sourceFolder}/sass/**/*.sass`,
         scripts: `${sourceFolder}/scripts/**/*.js`,
         images: `${sourceFolder}/images/**/*.{jpg,png,svg,gif,ico,webp}`,
+        video: `${projectFolder}/video/*.{mp4,webm}`,
     },
     clean: `./${projectFolder}/`,
 }
@@ -92,6 +95,7 @@ function watchFIles() {
     gulp.watch([paths.watch.css], css);
     gulp.watch([paths.watch.scripts], scripts);
     gulp.watch([paths.watch.images], images);
+    gulp.watch([paths.watch.video], images);
 }
 function clean() {
     return del(paths.clean);
